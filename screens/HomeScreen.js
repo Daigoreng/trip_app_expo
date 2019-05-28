@@ -66,11 +66,13 @@ class HomeScreen extends React.Component {
     }
   }
 
+  onListItemPress = (selectedReview) => {
+    this.props.navigation.navigate('detail');
+  }
+
   renderReviews() {
     let reviewRank;
     let rankedReviews = [];
-
-
 
     switch (this.state.selectedIndex){
 
@@ -88,7 +90,6 @@ class HomeScreen extends React.Component {
 
       default:
         break;
-
     }
 
     //必ずconstructor通るのでswitch文の下に書くないとselectedIndexがALL_INDEXになってしまう
@@ -133,6 +134,7 @@ class HomeScreen extends React.Component {
             leftIcon={{name:review.rank, color: reviewColor}}
             title={review.country}
             subtitle={`${review.dateFrom} ~ ${review.dateTo}`}
+            onPress={() => this.onListItemPress(review)}
           />
         );
       })
