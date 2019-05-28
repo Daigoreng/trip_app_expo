@@ -122,5 +122,7 @@ class HomeScreen extends React.Component {
   }
 }
 
+//こんちには
+
 
 export default HomeScreen;
