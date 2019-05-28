@@ -62,12 +62,15 @@ class HomeScreen extends React.Component {
   constructor(props){
     super(props);
     this.state ={
-      selectedIndex:0,
+      selectedIndex: ALL_INDEX,
     }
   }
 
   renderReviews() {
     let reviewRank;
+    let rankedReviews = [];
+
+
 
     switch (this.state.selectedIndex){
 
@@ -88,19 +91,19 @@ class HomeScreen extends React.Component {
 
     }
 
-let rankedReviews = [];
-
-if(this.state.selectedIndex ===ALL_INDEX) {
-  rankedReviews = allReviewsTmp;
-
-
-}else{
-  for (let i = 0; i < allReviewsTmp.length; i++){
-    if(allReviewsTmp[i].rank === reviewRank) {
-      rankedReviews.push(allReviewsTmp[i]);
+    //必ずconstructor通るのでswitch文の下に書くないとselectedIndexがALL_INDEXになってしまう
+    if(this.state.selectedIndex === ALL_INDEX) {
+      rankedReviews = allReviewsTmp;
+    }else{
+      for (let i = 0; i < allReviewsTmp.length; i++){
+        if(allReviewsTmp[i].rank === reviewRank) {
+          rankedReviews.push(allReviewsTmp[i]);
+        }
+      }
     }
-  }
-}
+
+
+
     return (
     <ScrollView>
       {rankedReviews.map((review,index) => {
@@ -162,6 +165,7 @@ if(this.state.selectedIndex ===ALL_INDEX) {
         selectedIndex={this.state.selectedIndex}
         onPress={this.onButtonGroupPress}
       /> 
+      {this.renderReviews()} 
       </View>
     );
   }
