@@ -6,6 +6,8 @@ import {
   createSwitchNavigator,
   createStackNavigator
 } from 'react-navigation'; 
+import {Provider} from 'react-redux';
+import store from './store';
 
 
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -155,10 +157,12 @@ export default class App extends React.Component {
   
 
     return (
+      <Provider store={store}>
       <View style={styles.container}>
         <StatusBar barStyle="light-contest" />
         <NavigatorTab />
       </View>
+      </Provider>
     );
   }
 }

@@ -152,11 +152,37 @@ class HomeScreen extends React.Component {
 
 
   render() {
+    let nGreat = 0;
+    let nGood = 0;
+    let nPoor = 0;
+
+    for (let i = 0; i< allReviewsTmp.length; i++){
+      switch(allReviewsTmp[i].rank){
+        case GREAT:
+          nGreat++;
+          break;
+
+        case GOOD:
+          nGood++;
+          break;
+
+        case POOR:
+          nPoor++;
+          break;
+
+        default:
+          break;
+      }
+    }
+
+
+
+
     const buttonList =[
-      'All',
-      'Great (0)',
-      'Good (0)',
-      'Poor (0)'
+      `All (${allReviewsTmp.length})`,
+      `Great (${nGreat})`,
+      `Good (${nGood})`,
+      `Poor (${nPoor})`
     ];
 
     return (
