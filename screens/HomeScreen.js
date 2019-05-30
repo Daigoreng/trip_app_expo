@@ -3,6 +3,8 @@ import { StyleSheet, Text, View} from 'react-native';
 import { ButtonGroup,ListItem} from 'react-native-elements'; 
 import { ScrollView } from 'react-native-gesture-handler';
 
+import * as actions from '../actions';
+
 const ALL_INDEX = 0;
 
 const GREAT = 'sentiment-very-satisfied';
@@ -64,6 +66,9 @@ class HomeScreen extends React.Component {
     this.state ={
       selectedIndex: ALL_INDEX,
     }
+  }
+  componentDidMount(){
+    this.props.fetchAllReviews();
   }
 
   onListItemPress = (selectedReview) => {
