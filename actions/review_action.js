@@ -1,6 +1,6 @@
 const FETCH_ALL_REVIEWS = 'fetch_all_reviews';
 
-export const fetchReviews = () => {
+export const fetchAllReviews = () => {
 
   return {type:FETCH_ALL_REVIEWS, payload: allReviewsTmp};
 

@@ -1,1 +1,1 @@
-export * from './review_action'
+export * from './review_action';
