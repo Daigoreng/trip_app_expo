@@ -2,7 +2,7 @@ import Geocoder from 'react-native-geocoding';
 import React from 'react';
 import {
   Text, View, ScrollView,ActivityIndicator,Image, TouchableOpacity,Modal,// 描画に直接関わるコンポーネント達
-  Dimensions, Platform // ←追記部分 // 描画に直接関わらないもの
+  Dimensions, Platform 
 } from 'react-native';
 import { MapView } from 'expo';
 import { connect } from 'react-redux';
@@ -105,7 +105,7 @@ class DetailScreen extends React.Component {
 
     return (
       <View style={{ flex: 1 }}>
-         <Modal // ←追記ここから
+         <Modal 
           visible={this.state.modalVisible} // モーダルを表示するか否か
           animationType="fade" // モーダルを表示する際のアニメーション
           transparent={false} // モーダルの背景を半透明にするか否か
