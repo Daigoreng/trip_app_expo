@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, LayoutAnimation, UIManager} from 'react-native';
 import {Icon} from 'react-native-elements';
-
+import {Header, Icon} from 'react-native-elements';
 
 const GREAT = 'sentiment-very-satisfied';
 const GREAT_COLOR = 'red';
@@ -53,10 +53,10 @@ class AddScreen extends React.Component {
     UIManager.setLayoutAnimationEnabledExperimental &&UIManager.setLayoutAnimationEnabledExperimental(true);
     LayoutAnimation.easeInEaseOut();
   }
-  
+
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center' }}>
+      <View style={{ flex: 1}}>
         <Text>This is AddScreen</Text>
         
         <Icon 
