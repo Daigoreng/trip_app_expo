@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, LayoutAnimation, UIManager} from 'react-native';
-import {Header, Icon} from 'react-native-elements';
+import { StyleSheet, Text, View, ScrollView, Dimensions, LayoutAnimation, UIManager} from 'react-native';
+import {Header, Icon, ListItem} from 'react-native-elements';
 
 const GREAT = 'sentiment-very-satisfied';
 const GREAT_COLOR = 'red';
@@ -79,6 +79,35 @@ class AddScreen extends React.Component {
           }}
           centerComponent={{text:'Add',style:styles.headerStyle}}
         />
+
+        <ScrollView style={{flex:1}}>
+          <ListItem
+            title="Country: "
+            subtitle={
+              <View style={styles.listItemStyle}>
+                <Text
+                  style={{
+                    fontSize: 18,
+                    color:this.state.tripDetail.country == INITIAL_STATE.tripDetail.country ? 'gray' : 'black'
+
+                  }}
+                >
+                  {this.state.tripDetail.country}
+                </Text>
+              </View>
+            }
+            rightIcon={{name:this.state.countryPickerVisible === true ? 'keyboard-arrow-up' : 'keyboard-arrow-down'}}
+            
+            onPress={() => this.setState({
+              countryPickerVisible: !this.state.countryPickerVisible,
+              dateFromPickerVisible: false,
+              dateToPickerVisible: false,
+            })}
+            
+            />
+
+
+        </ScrollView>
       </View>
     );
   }
