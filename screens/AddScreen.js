@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, LayoutAnimation, UIManager} from 'react-native';
-import {Icon} from 'react-native-elements';
 import {Header, Icon} from 'react-native-elements';
 
 const GREAT = 'sentiment-very-satisfied';
@@ -57,13 +56,29 @@ class AddScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1}}>
-        <Text>This is AddScreen</Text>
-        
-        <Icon 
-          name="close"
-          onPress={() => this.props.navigation.navigate('home')}
+        <Header
+          statusBarProps={{barStyle:'light-content'}}
+          backgroundColor="deepskyblue"
+          leftComponent={{
+            icon: 'close',
+            color: 'white',
+            onPress: () => {
+              this.setState({
+                ...INITIAL_STATE,
+                tripDetail:{
+                  ...INITIAL_STATE.tripDetail,
+                  imageURIs:[
+                    require('..//assets/add_image_placeholder.png'),
+                    require('..//assets/add_image_placeholder.png'),
+                    require('..//assets/add_image_placeholder.png'),
+                  ]
+                }
+              });
+              this.props.navigation.navigate('home');
+            }
+          }}
+          centerComponent={{text:'Add',style:styles.headerStyle}}
         />
-
       </View>
     );
   }
