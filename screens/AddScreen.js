@@ -19,8 +19,8 @@ const INITIAL_STATE = {
   dateToPickerVisible:false,
 
 
-  chosenDataFrom: new DataCue().toLocaleString('ja'),
-  choseDateTo: new Date().tpLocaleString('ja'),
+  chosenDataFrom: new Date().toLocaleString('ja'),
+  chosenDateTo: new Date().toLocaleString('ja'),
   
   tripDetail:{
     country:'select Country',
@@ -83,6 +83,14 @@ class AddScreen extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headerStyle:{
+    color:'white',
+    fontSize:18,
+    fontWeight:'bold'
+  },
+})
 
 
 export default AddScreen;
