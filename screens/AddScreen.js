@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions, LayoutAnimation, UIManager} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions, LayoutAnimation, UIManager, Picker} from 'react-native';
 import {Header, Icon, ListItem} from 'react-native-elements';
 
 const GREAT = 'sentiment-very-satisfied';
@@ -53,6 +53,30 @@ class AddScreen extends React.Component {
     LayoutAnimation.easeInEaseOut();
   }
 
+  renderCountryPicker(){
+    if(this.state.countryPickerVisible === true) {
+      return (
+        <Picker
+          selectedValue={this.state.tripDetail.country}
+          onValueChange={(itemValue) => {
+            this.setState({
+              ...this.state,
+              tripDetail:{
+                ...this.state.tripDetail,
+                country: itemValue
+              },
+            });
+           }}
+        >
+          <Picker.Item label={INITIAL_STATE.tripDetail.country} value={INITIAL_STATE.tripDetail.country}/>
+          <Picker.Item label="China" value="China"/>
+          <Picker.Item label="UK" value="UK"/>
+          <Picker.Item label="USA" value="USA"/>
+        </Picker>
+      );
+    }
+  }
+
   render() {
     return (
       <View style={{ flex: 1}}>
@@ -103,10 +127,8 @@ class AddScreen extends React.Component {
               dateFromPickerVisible: false,
               dateToPickerVisible: false,
             })}
-            
             />
-
-
+            {this.renderCountryPicker()}
         </ScrollView>
       </View>
     );
@@ -118,6 +140,10 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize:18,
     fontWeight:'bold'
+  },
+  listItemStyle:{
+    paddingTop:5,
+    paddingLeft:20,
   },
 })
 
