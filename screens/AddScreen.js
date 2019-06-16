@@ -101,6 +101,7 @@ class AddScreen extends React.Component {
               this.props.navigation.navigate('home');
             }
           }}
+          
           centerComponent={{text:'Add',style:styles.headerStyle}}
         />
 
